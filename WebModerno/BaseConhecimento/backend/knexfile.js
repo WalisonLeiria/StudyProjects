@@ -1,17 +1,11 @@
-// Update with your config settings.
+const { db } = require("./.env");
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
   client: "mysql2",
-  connection: {
-    host: "127.0.0.1",
-    port: "3306",
-    user: "root",
-    password: "Web@Leiria",
-    database: "knowledge",
-  },
+  connection: db,
   pool: {
     min: 2,
     max: 10,

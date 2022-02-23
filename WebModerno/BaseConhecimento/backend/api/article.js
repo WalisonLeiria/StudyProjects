@@ -78,6 +78,7 @@ module.exports = app => {
       .select("a.id", "a.name", "a.descrption", "a.imageUrl", { author: "u.name" })
       .limit(limit).offset(page * limit - limit)
       .whereRaw("?? = ??", ["u.id", "a.userId"])
+      .whereNull("a.deletedAt")
       .whereIn("categoryId", ids)
       .orderBy("a.id", "desc")
       .then(data => response.json(data))
