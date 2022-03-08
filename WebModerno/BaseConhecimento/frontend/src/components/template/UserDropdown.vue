@@ -8,8 +8,8 @@
       <font-awesome-icon icon="fa-solid fa-angle-down" />
     </div>
     <div class="user-dropdown-content">
-      <a href="javascript:;"><font-awesome-icon icon="fa-solid fa-gears" /> Administração</a>
-      <a href="javascript:;"><font-awesome-icon icon="fa-solid fa-right-from-bracket" /> Sair</a>
+      <router-link to="/admin"><font-awesome-icon icon="fa-solid fa-gears" /> Administração</router-link>
+      <router-link to=""><font-awesome-icon icon="fa-solid fa-right-from-bracket" /> Sair</router-link>
     </div>
   </div>
 </template>
