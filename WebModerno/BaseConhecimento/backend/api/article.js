@@ -49,7 +49,7 @@ module.exports = app => {
     const page = request.query.page || 1;
 
     const result = await app.db("articles").count("id").first();
-    const count = parseInt(result.count);
+    const count = parseInt(result['count(`id`)']);
     app.db("articles")
       .select("id", "name", "description")
       .limit(limit).offset(page * limit - limit)
