@@ -8,21 +8,29 @@
       <font-awesome-icon icon="fa-solid fa-angle-down" />
     </div>
     <div class="user-dropdown-content">
-      <router-link to="/admin"><font-awesome-icon icon="fa-solid fa-gears" /> Administração</router-link>
-      <router-link to=""><font-awesome-icon icon="fa-solid fa-right-from-bracket" /> Sair</router-link>
+      <router-link to="/admin" v-if="user.admin"><font-awesome-icon icon="fa-solid fa-gears" /> Administração</router-link>
+      <a href="javascript:;" @click.prevent="signOut"><font-awesome-icon icon="fa-solid fa-right-from-bracket" /> Sair</a>
     </div>
   </div>
 </template>
 <script>
 import { mapState } from "vuex";
 import Gravatar from "vue-gravatar";
+import global from "../../global";
 
 export default {
   name: "UserDropdown",
   components: {
     Gravatar
   },
-  computed: mapState(["user"])
+  computed: mapState(["user"]),
+  methods: {
+    signOut() {
+      localStorage.removeItem(global.userKey);
+      this.$store.commit("setUser", null);
+      this.$router.push({ name:"auth" });
+    }
+  },
 }
 </script>
 <style>

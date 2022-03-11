@@ -4,6 +4,8 @@ import store from './config/store';
 import router from './config/router';
 import './config/bootstrap';
 import './config/msg';
+import './config/axios';
+import './config/mq';
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,7 +23,8 @@ import { faAngleLeft
         ,faCheck
         ,faXmark
         ,faPencil
-        ,faTrash } from '@fortawesome/free-solid-svg-icons'
+        ,faTrash
+        ,faSearch } from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -39,15 +42,13 @@ library.add(faAngleLeft,
             faCheck,
             faXmark,
             faPencil,
-            faTrash)
+            faTrash,
+            faSearch)
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
-
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IldhbGlzb24gTGVpcmlhIiwiZW1haWwiOiJ3bGVpcmlhQGhvdG1haWwuY29tIiwiYWRtaW4iOjEsImlhdCI6MTY0NjcxMTI1NSwiZXhwIjoxNjQ2Nzk3NjU1fQ.r75mbA00M6hrsRERtVS0uBJ9JRotRQaWznQVuDdkjR4";
-require("axios").defaults.headers.common["Authorization"] = `bearer ${token}`;
 
 new Vue({
   store,
